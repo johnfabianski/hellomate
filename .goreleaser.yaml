@@ -38,3 +38,4 @@ brews:
     name: homebrew-tools
   install: |
     bin.install "program"
+    generate_completions_from_executable(bin/"hellomate", "completion")
