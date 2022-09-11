@@ -13,7 +13,7 @@ import (
 )
 
 var RootCmd = &cobra.Command{
-	Use:  "db",
+	Use:  "hellomate",
 	Long: "Root command",
 }
 var HelloCmd = &cobra.Command{
@@ -47,6 +47,7 @@ func getNames() []string {
 
 func UserGet(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
 	rand.Seed(time.Now().UnixNano())
+	// fmt.Println("UserGet called")
 	return getNames(), cobra.ShellCompDirectiveNoFileComp //
 }
 func init() {
@@ -58,3 +59,6 @@ func main() {
 		os.Exit(1)
 	}
 }
+
+// git tag -a 1.0.8 -m "shell completion"
+// goreleaser --rm-dist
