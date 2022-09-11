@@ -36,5 +36,5 @@ brews:
   tap:
     owner: samlhuillier
     name: homebrew-tools
-install: |
-  bin.install "program"
+  install: |
+    bin.install "program"
