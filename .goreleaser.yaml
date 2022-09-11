@@ -37,5 +37,5 @@ brews:
     owner: samlhuillier
     name: homebrew-tools
   install: |
-    bin.install "program"
+    bin.install "hellomate"
     generate_completions_from_executable(bin/"hellomate", "completion")
