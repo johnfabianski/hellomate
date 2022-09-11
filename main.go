@@ -8,7 +8,6 @@ import (
 	"os"
 	"time"
 
-	"github.com/samlhuillier/hellomate/cmd"
 	"github.com/spf13/cobra"
 )
 
@@ -51,7 +50,7 @@ func UserGet(cmd *cobra.Command, args []string, toComplete string) ([]string, co
 	return getNames(), cobra.ShellCompDirectiveNoFileComp //
 }
 func init() {
-	RootCmd.AddCommand(HelloCmd, cmd.CompletionCmd)
+	RootCmd.AddCommand(HelloCmd) //, cmd.CompletionCmd)
 }
 func main() {
 	if err := RootCmd.Execute(); err != nil {
