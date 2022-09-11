@@ -30,3 +30,9 @@ changelog:
     exclude:
       - '^docs:'
       - '^test:'
+brews:
+- name: hellomate
+  homepage: https://github.com/samlhuillier/homebrew-tools
+  tap:
+    owner: samlhuillier
+    name: homebrew-tools
