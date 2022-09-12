@@ -15,15 +15,33 @@ var RootCmd = &cobra.Command{
 	Use:  "hellomate",
 	Long: "Root command",
 }
+
 var HelloCmd = &cobra.Command{
 	Use:   "hello <name>",
-	Short: "Get user data",
-	Args:  cobra.ExactValidArgs(1),
+	Short: "Say hello to someone",
+	Long:  `Say hello to someone`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Printf("Hello %s!!!\n", args[0])
+		fmt.Println(args)
+		fmt.Println("hello " + args[0])
+		cmd.Help()
 	},
-	ValidArgsFunction: UserGet,
+	ValidArgsFunction: func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
+		if len(args) != 0 {
+			return nil, cobra.ShellCompDirectiveNoFileComp
+		}
+		return []string{"steve", "john"}, cobra.ShellCompDirectiveNoFileComp
+	},
 }
+
+// var HelloCmd = &cobra.Command{
+// 	Use:   "hello <name>",
+// 	Short: "Get user data",
+// 	Args:  cobra.ExactValidArgs(1),
+// 	Run: func(cmd *cobra.Command, args []string) {
+// 		fmt.Printf("Hello %s!!!\n", args[0])
+// 	},
+// 	ValidArgsFunction: UserGet,
+// }
 
 func getNames() []string {
 	file, err := os.Open("common-names.txt")
@@ -61,3 +79,5 @@ func main() {
 
 // git tag -a 1.0.8 -m "shell completion"
 // goreleaser --rm-dist
+
+// So for some reason, the get names thing doesn't work either. Maybe something to do with the ValidArgsFunction
