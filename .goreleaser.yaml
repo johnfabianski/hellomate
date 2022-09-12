@@ -38,7 +38,6 @@ brews:
     name: homebrew-tools
   install: |
     bin.install "hellomate"
-    zsh_completion.install "completion/zsh/_hellomate" => "_hellomate"
+    output = Utils.popen_read("#{bin}/hellomate completion zsh")
+    (zsh_completion/"_hellomate").write output
 
-  # post_install: |
-  #   generate_completions_from_executable(bin/"hellomate", "completion")
