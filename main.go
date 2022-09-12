@@ -21,9 +21,9 @@ var HelloCmd = &cobra.Command{
 	Short: "Say hello to someone",
 	Long:  `Say hello to someone`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println(args)
+		// fmt.Println(args)
 		fmt.Println("hello " + args[0])
-		cmd.Help()
+		// cmd.Help()
 	},
 	ValidArgsFunction: func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
 		if len(args) != 0 {
